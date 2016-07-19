@@ -108,7 +108,7 @@ class Llvm < Formula
     end
 
     resource "libunwind" do
-      url "git://git.sv.gnu.org/libunwind.git"
+      url "http://llvm.org/git/libunwind.git"
     end
 
     resource "lld" do
@@ -117,6 +117,10 @@ class Llvm < Formula
 
     resource "lldb" do
       url "http://llvm.org/git/lldb.git"
+    end
+
+    resource "openmp" do
+      url "http://llvm.org/git/openmp.git"
     end
 
     resource "polly" do

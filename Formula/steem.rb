@@ -16,7 +16,7 @@ class Steem < Formula
   depends_on "berkeley-db" => :optional
   depends_on "gperftools" => :optional
   depends_on "icu4c"
-  depends_on "boost"
+  depends_on "boost160"
   depends_on "openssl"
   depends_on "readline"
 

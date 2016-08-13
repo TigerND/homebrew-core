@@ -1,14 +1,14 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.5.0.tar.gz"
-  sha256 "2a6720d4664fba23356824e1a2f70c0c893ee3d8d90c13b130f9349f466b99c5"
+  url "https://github.com/googlei18n/libphonenumber/archive/libphonenumber-7.5.2.tar.gz"
+  sha256 "c116c1299074b10ed8b862221ca57f822bae7637b717706ff2c71350f430b3b1"
 
   bottle do
     cellar :any
-    sha256 "f52f686c8703b491313f1c57b8fbc365a6b6adfd83477bd7c43dd9c76a13584c" => :el_capitan
-    sha256 "859fe865e7aebe43f2c0bce3f223da7d96adf5bda1070db9ae63f7551058dce4" => :yosemite
-    sha256 "387c2a3020434899857730c4cd14a095a8ed3d238a843bcc2a344d73e5779a25" => :mavericks
+    sha256 "94e3ae2fa673a715cc920afe1735f77937e1c3ba74835e2c313b0e2a51fafd0b" => :el_capitan
+    sha256 "909df5e61993716764df96f22839bf0b1f0669b05077d0fa4f04dc7ffdbe5cc9" => :yosemite
+    sha256 "e53f237071882b92ebeca368d63aac3843f2cbb33191e97b5915c2e133ef296e" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -31,10 +31,11 @@ class Libphonenumber < Formula
       system "make"
     end
 
-    args = std_cmake_args
-    args << "-DGTEST_INCLUDE_DIR:PATH=#{(buildpath/"gtest/include")}"
-    args << "-DGTEST_LIB:PATH=#{buildpath/"gtest/libgtest.a"}"
-    args << "-DGTEST_SOURCE_DIR:PATH=#{buildpath/"gtest/src"}"
+    args = std_cmake_args + %W[
+      -DGTEST_INCLUDE_DIR:PATH=#{buildpath}/gtest/include
+      -DGTEST_LIB:PATH=#{buildpath}/gtest/libgtest.a
+      -DGTEST_SOURCE_DIR:PATH=#{buildpath}/gtest/src
+    ]
 
     system "cmake", "cpp", *args
     system "make", "install"

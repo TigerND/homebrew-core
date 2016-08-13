@@ -26,6 +26,7 @@ class Steem < Formula
       -DCMAKE_BUILD_TYPE=Release
       -DLOW_MEMORY_NODE=OFF
       -DENABLE_CONTENT_PATCHING=ON
+      -DBOOST_ROOT=/usr/local/opt/boost160
     ]
 
     system "cmake", *(cmake_args + std_cmake_args)

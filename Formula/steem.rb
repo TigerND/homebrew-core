@@ -2,8 +2,8 @@ class Steem < Formula
   desc "Proof of Work blockchain with an unproven consensus algorithm."
   homepage "https://steemit.com/"
   url "https://github.com/steemit/steem.git",
-      :tag => "v0.13.0",
-      :revision => "045c2a340d254d11dfcd22e1253646132465f9b7"
+      :tag => "v0.14.0",
+      :revision => "637ecec8997d839eaf62f977269e60fba4c75ea2"
 
   depends_on :macos => [:yosemite, :el_capitan, :sierra]
 
